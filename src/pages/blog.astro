@@ -1,9 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const pageTitle = 'Blog de aprendizaje de Astro';
 ---
 
-<Layout>
-	<h1>Mi blog de Astro aprendizaje</h1>
+<Layout pageTitle={pageTitle}>
+	<h1>{pageTitle}</h1>
 	<p>Aquí es donde publicaré sobre mi viaje de aprendizaje Astro.</p>
 
 	<ul>

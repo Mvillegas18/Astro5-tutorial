@@ -1,10 +1,35 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const pageTitle = 'Sobre mi';
+
+const person = {
+	name: 'Miguel',
+	country: 'Colombia',
+	occupation: 'Student',
+	hobbies: ['programming', 'reading', 'gaming'],
+	age: 20,
+};
+
+const skills = [
+	'HTML',
+	'CSS',
+	'JavaScript',
+	'React',
+	'Node.js',
+	'Express',
+	'MongoDB',
+	'Git',
+	'GitHub',
+];
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
-<Layout>
+<Layout pageTitle={pageTitle}>
 	<main>
-		<h1>Sobre mi</h1>
+		<h1>{pageTitle}</h1>
 		<h2>... ¡y mi nuevo sitio Astro!</h2>
 
 		<p>
@@ -18,5 +43,36 @@ import Layout from '../layouts/Layout.astro';
 			partes del tutorial, ¡así que no dejes de visitarlo para ver cómo va
 			mi viaje!
 		</p>
+
+		<p>He aqui unos datos sobre mi</p>
+		<ul>
+			<li>Me llamo {person.name}</li>
+			<li>Vivo en {person.country} y trabajo como {person.occupation}</li>
+			{
+				person.hobbies.length >= 2 && (
+					<li>
+						Dos de mis aficiones son {person.hobbies[0]} y{' '}
+						{person.hobbies[3]}
+					</li>
+				)
+			}
+		</ul>
+
+		<p>Mis habilidades son:</p>
+		<ul>
+			{skills.map((skill, i) => <li>{skill.trim()}</li>)}
+		</ul>
+
+		{happy && <p>¡Estoy feliz de aprender Astro!</p>}
+
+		{finished && <p>¡He terminado este tutorial!</p>}
+
+		{
+			goal === 3 ? (
+				<p>Mi objetivo es terminar en 3 días.</p>
+			) : (
+				<p>Mi objetivo no son 3 días.</p>
+			)
+		}
 	</main>
 </Layout>
